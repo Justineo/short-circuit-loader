@@ -1,0 +1,11 @@
+{
+  "presets": ["env"],
+  "plugins": ["add-module-exports"],
+  "comments": false,
+  "env": {
+    "test": {
+      "presets": ["env"],
+      "plugins": ["istanbul"]
+    }
+  }
+}
