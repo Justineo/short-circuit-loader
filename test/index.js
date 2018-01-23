@@ -1,6 +1,7 @@
 import test from 'ava'
 import webpack from 'webpack'
 import path from 'path'
+import { readFileSync } from 'fs'
 
 let guid = 0
 
@@ -33,7 +34,7 @@ function getConfig (options) {
   }
 }
 
-function testOptions (options, leading) {
+function testOptions (options, expected) {
   test.cb(t => {
     const compiler = webpack(getConfig(options))
 
@@ -49,7 +50,7 @@ function testOptions (options, leading) {
         t.end()
         return
       }
-      t.true(src.indexOf(leading) === 0)
+      t.true(src === expected)
       t.end()
     })
   })
@@ -72,10 +73,13 @@ function getSource (stats) {
 }
 
 ;[
-  [null, "if (typeof window !== 'undefined')"],
   [
-    { expr: "typeof document !== 'undefined'" },
-    "if (typeof document !== 'undefined')"
+    null,
+    "(function () {\nif (typeof window === 'undefined') { return }\n\nalert('You cannot see me on the server side.')\n\n}())"
+  ],
+  [
+    { expr: "typeof document === 'undefined'" },
+    "(function () {\nif (typeof document === 'undefined') { return }\n\nalert('You cannot see me on the server side.')\n\n}())"
   ]
 ].forEach(args => {
   testOptions(...args)
