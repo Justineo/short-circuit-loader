@@ -28,12 +28,12 @@ npm i --save-dev short-circuit-loader
 
   A JavaScript expression that allow the module to be executed when evaluate to truthy value.
 
-  eg. `process.env.VUE_ENV === 'server'` makes the final output like this:
+  eg. `process.env.VUE_ENV !== 'server'` makes the final output like this:
 
   ```js
-  if (process.env.VUE_ENV === 'server') {
+  if (process.env.VUE_ENV !== 'server') {
     // original module
   }
   ```
 
-  Default value: `typeof window === 'undefined'`.
+  Default value: `typeof window !== 'undefined'`.
