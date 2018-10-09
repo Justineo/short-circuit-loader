@@ -1,6 +1,6 @@
 {
   "name": "short-circuit-loader",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.2",
   "description": "Short circuit specified side-effect-only modules for webpack.",
   "main": "lib/index.js",
   "scripts": {
@@ -19,11 +19,11 @@
   "author": "Justineo (justice360@gmail.com)",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.24.0",
+    "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.16.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",
